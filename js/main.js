@@ -120,7 +120,7 @@ const displayNewsDetails = (details) => {
 }
 
 loadNewsDetails();
-// displayCategoryPost();
+
 
 categoryPost();
 
