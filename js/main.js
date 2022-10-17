@@ -83,7 +83,9 @@ const displayNewsDetails = (details) => {
         const newsTitle = document.getElementById('newsDetailModalLabel');
         newsTitle.innerText = detail.title;
         const newsBody = document.getElementById('news-body');
-        newsBody.innerText = detail.details
+        newsBody.innerText = detail.details;
+        const newsFooter = document.getElementById('news-footer');
+        newsFooter.innerText = detail.rating.badge
     })
 }
 
