@@ -15,7 +15,7 @@ const displayCategory = (categories) => {
         categoryDiv.classList.add('nav-item');
         categoryDiv.innerHTML = `
         <li class="">
-                    <a class="nav-link active" aria-current="page" onclick="categoryPost('${category.category_id}')" href="#">${category.category_name}</a>
+                    <a class="nav-link custom" aria-current="page" onclick="categoryPost('${category.category_id}')" href="#">${category.category_name}</a>
                 </li>
         `;
         categoriesContainer.appendChild(categoryDiv);
