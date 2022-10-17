@@ -79,8 +79,11 @@ const loadNewsDetails = (postId) => {
 
 const displayNewsDetails = (details) => {
     details.forEach(detail => {
-        // console.log(detail.details);
-
+        console.log(detail.details);
+        const newsTitle = document.getElementById('newsDetailModalLabel');
+        newsTitle.innerText = detail.title;
+        const newsBody = document.getElementById('news-body');
+        newsBody.innerText = detail.details
     })
 }
 
@@ -91,3 +94,5 @@ categoryPost();
 
 
 loadCategory();
+
+
