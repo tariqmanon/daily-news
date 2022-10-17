@@ -3,6 +3,7 @@ function loadCategory() {
     fetch(url)
         .then(res => res.json())
         .then(data => displayCategory(data.data.news_category));
+
 }
 
 const displayCategory = (categories) => {
@@ -17,19 +18,43 @@ const displayCategory = (categories) => {
         <li class="">
                     <a class="nav-link custom" aria-current="page" onclick="categoryPost('${category.category_id}')" href="#">${category.category_name}</a>
                 </li>
+                
         `;
         categoriesContainer.appendChild(categoryDiv);
-    })
+
+    });
+
 }
 
+
+
+// document.getElementById('post-link').addEventListener('click', function () {
+//     toggleSpinner(true);
+// })
+
+
+
 const categoryPost = (id) => {
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayCategoryPost(data.data))
+        .then(data => displayCategoryPost(data.data));
+
+
+}
+
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    } else {
+        loaderSection.classList.add('d-none');
+    }
 }
 
 const displayCategoryPost = (posts) => {
+
     const postContainer = document.getElementById('post-container');
     postContainer.innerHTML = '';
     posts.forEach(post => {
@@ -67,7 +92,8 @@ const displayCategoryPost = (posts) => {
 
         postContainer.appendChild(postDiv);
 
-    })
+    });
+    toggleSpinner(false);
 
 }
 const loadNewsDetails = (postId) => {
