@@ -56,7 +56,7 @@ const displayCategoryPost = (posts) => {
                                 <span>${post.total_view}K</span>
                             </div>
                             <div class="p-2 flex-fill">
-                                <button class="text-white btn btn-primary">Read More</button>
+                                <button onclick="loadNewsDetails('${post._id}')" class="text-white btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal">Read More</button>
                             </div>
                         </div>
                             </div >
@@ -70,6 +70,21 @@ const displayCategoryPost = (posts) => {
     })
 
 }
+const loadNewsDetails = (postId) => {
+    const url = `https://openapi.programming-hero.com/api/news/${postId}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayNewsDetails(data.data))
+}
+
+const displayNewsDetails = (details) => {
+    details.forEach(detail => {
+        // console.log(detail.details);
+
+    })
+}
+
+loadNewsDetails();
 // displayCategoryPost();
 
 categoryPost();
