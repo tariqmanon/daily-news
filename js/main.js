@@ -28,10 +28,6 @@ const displayCategory = (categories) => {
 
 
 
-// document.getElementById('post-link').addEventListener('click', function () {
-//     toggleSpinner(true);
-// })
-
 
 
 const categoryPost = (id) => {
@@ -58,7 +54,15 @@ const displayCategoryPost = (posts) => {
     const postContainer = document.getElementById('post-container');
     postContainer.innerHTML = '';
     posts.forEach(post => {
-        // console.log(post)
+        console.log();
+        const searchCat = document.getElementById('search-alert');
+        if (posts.length > 0) {
+            searchCat.innerText = `${posts.length} items found for category this category`;
+            searchCat.classList.remove('d-none');
+        } else {
+            searchCat.innerText = "No items Found";
+            searchCat.classList.remove('d-none');
+        }
 
         const postDiv = document.createElement('div');
         postDiv.innerHTML = `
@@ -105,7 +109,7 @@ const loadNewsDetails = (postId) => {
 
 const displayNewsDetails = (details) => {
     details.forEach(detail => {
-        console.log(detail.details);
+        console.log(detail?.details);
         const newsTitle = document.getElementById('newsDetailModalLabel');
         newsTitle.innerText = detail.title;
         const newsBody = document.getElementById('news-body');
