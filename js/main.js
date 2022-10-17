@@ -49,11 +49,11 @@ const displayCategoryPost = (posts) => {
                                 <div class="d-flex justify-content-between align-items-center">
                             <div class="p-2 flex-fill">
                                 <img src="${post.author.img}" alt="" width="50px" class="rounded-5">
-                                <span>${post.author?.name}</span>
+                                <span>${post?.author?.name}</span>
                             </div>
                             <div class="p-2 flex-fill">
                                 <i class="fa-solid fa-eye"></i>
-                                <span>${post.total_view}K</span>
+                                <span>${post?.total_view}K</span>
                             </div>
                             <div class="p-2 flex-fill">
                                 <button onclick="loadNewsDetails('${post._id}')" class="text-white btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal">Read More</button>
